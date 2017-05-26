@@ -1,0 +1,33 @@
+.InstagramWall {
+    width: 100%;
+    height: 100%;
+}
+
+.InstagramPhoto {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000;
+    position: relative;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000, 0px 0px 8px #000;
+    flex: 1 1 250px;
+    margin-right: 8px;
+    margin-top: 8px;
+}
+
+.InstagramPhoto-details {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 12px;
+}
+
+.InstagramPhoto-author {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.InstagramPhoto-date {
+    margin-top: 2px;
+}

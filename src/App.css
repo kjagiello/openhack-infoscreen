@@ -1,0 +1,22 @@
+html, body, #root, .App, .App > .Flex {
+    width: 100%;
+    height: 100%;
+    font-family: Helvetica;
+}
+
+* {
+  min-height: 0;
+  min-width: 0;
+}
+
+.App > .Flex > .Box {
+    height: 100%;
+}
+
+.App > .Flex {
+    border: solid 12px #363942;
+}
+
+.App-media {
+    border-left: solid 12px #363942;
+}

@@ -1,0 +1,30 @@
+.rbc-calendar {
+    height: 100%;
+    width: 400px;
+}
+
+.rbc-event {
+    border-radius: 0 !important;
+}
+
+.rbc-time-view, .rbc-time-content > * + * > *, .rbc-time-header {
+    border-left: none !important;
+    border-right: none !important;
+}
+
+.rbc-label {
+    padding: 2px 0 !important;
+    font-size: 14px;
+}
+
+.rbc-time-view {
+    border-top: none !important;
+}
+
+.rbc-event {
+    background-color: #382513 !important;
+}
+
+.event-food {
+    background-color: #5C832F !important;
+}
