@@ -7,7 +7,7 @@ import './InstagramWall.css';
 
 class InstagramPhoto extends Component {
     render() {
-        const basis = this.props.basis || 400;
+        const basis = this.props.basis;
         const style = {
             backgroundImage: `url(${this.props.url})`,
             flexBasis: `${basis}px`
@@ -21,6 +21,21 @@ class InstagramPhoto extends Component {
                     <div className="InstagramPhoto-date">{date}</div>
                 </div>
             </div>
+        );
+    }
+}
+
+class HashtagTile extends Component {
+    render(){
+        const {basis, hashtag }= this.props;
+        const style = {
+            background: "#363942",
+            flexBasis: `${basis}px`
+        };
+        return(
+            <Flex className={`InstagramPhoto`} style={style} align="center" justify="center">
+                <div className="hashtag" >#{hashtag}</div>
+            </Flex>
         );
     }
 }
@@ -43,7 +58,7 @@ export default class InstagramWall extends Component {
 
     fetchData() {
         const { token, hashtag } = this.props;
-        const limit = this.props.limit || 9;
+        const limit = this.props.limit || 8;
         const url = `https://api.instagram.com/v1/tags/${hashtag}/` +
                     `media/recent?access_token=${token}`;
         fetchJsonp(url)
@@ -58,12 +73,16 @@ export default class InstagramWall extends Component {
                 };
             }))
             .then(posts => this.setState({posts: posts}));
+
     }
 
     render() {
+        const basis = this.props.basis || 400;
+        const {hashtag} = this.props;
         return (
             <Flex auto wrap={true}>
-                {this.state.posts.map(p => <InstagramPhoto {...p} key={p.id} />)}
+                {this.state.posts.map(p => <InstagramPhoto {...p} key={p.id} basis={basis} />)}
+                <HashtagTile basis={basis} hashtag={hashtag} />
             </Flex>
         );
     }

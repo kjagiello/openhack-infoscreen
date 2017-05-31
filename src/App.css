@@ -20,3 +20,16 @@ html, body, #root, .App, .App > .Flex {
 .App-media {
     border-left: solid 12px #363942;
 }
+.midnight-container{
+    display: inherit;
+    height: 30px;
+    font-size: 14px;
+}
+.midnight-text{
+    background-color: green;
+    margin-left: 7px;
+    width: 90%;
+    color: white;
+    height: 100%;
+    padding: 3px;    
+}
