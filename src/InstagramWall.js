@@ -26,10 +26,10 @@ class InstagramPhoto extends Component {
 }
 
 class HashtagTile extends Component {
-    render(){
-        const {basis, hashtag }= this.props;
+    render() {
+        const { basis, hashtag } = this.props;
         const style = {
-            background: "#363942",
+            background: '#363942',
             flexBasis: `${basis}px`
         };
         return(

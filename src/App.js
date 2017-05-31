@@ -14,9 +14,9 @@ class App extends Component {
                     <Flex flexAuto align="stretch">
                         <Flex column pl={1} pt={1} pb={1}>
                             <Calendar ical={process.conf.ICAL_URL} />
-                            <div className="midnight-container" >
-                                <div className="midnight-time" >00:00</div>
-                                <div className="midnight-text" >MIDNIGHT SUPRISE</div>
+                            <div className="midnight-container">
+                                <div className="midnight-time">00:00</div>
+                                <div className="midnight-text">MIDNIGHT SUPRISE</div>
                             </div>
                         </Flex>
                         <Flex className="App-media" auto ml={1} pl={1} pb={1}>

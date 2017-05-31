@@ -15,7 +15,7 @@ BigCalendar.setLocalizer(
 export default class Calendar extends Component {
     constructor(props) {
         super(props);
-        this.state = {events: []};
+        this.state = {events: [], date: new Date()};
     }
 
     componentDidMount() {
@@ -45,7 +45,7 @@ export default class Calendar extends Component {
                             desc: ev.description
                         };
                     });
-                this.setState({events: events});
+                this.setState({events: events, date: new Date()});
             });
     }
 
@@ -60,6 +60,14 @@ export default class Calendar extends Component {
     }
 
     render() {
+        const minDate = new Date(this.state.date);
+        minDate.setHours(8);
+        minDate.setMinutes(0);
+        minDate.setSeconds(0);
+        const maxDate = new Date(this.state.date);
+        maxDate.setHours(21);
+        maxDate.setMinutes(0);
+        maxDate.setSeconds(0);
         return (
             <BigCalendar
                 culture='en-gb'
@@ -68,10 +76,10 @@ export default class Calendar extends Component {
                 toolbar={false}
                 selectable={false}
                 ignoreEvents={true}
-                defaultDate={new Date(2017, 5, 3, 13, 0, 0)}
+                defaultDate={this.state.date}
                 eventPropGetter={this.eventStyle.bind(this)}
-                min={new Date(2017, 5, 3, 8)}
-                max={new Date(2017, 5, 3, 20)}
+                min={minDate}
+                max={maxDate}
             />
         );
     }

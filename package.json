@@ -9,7 +9,6 @@
     "react": "^15.5.4",
     "react-big-calendar": "^0.14.0",
     "react-dom": "^15.5.4",
-    "react-responsive-carousel": "^3.1.17",
     "reflexbox": "^2.2.3",
     "timeago.js": "^3.0.1",
     "whatwg-fetch": "^2.0.3"
