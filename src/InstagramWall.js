@@ -7,8 +7,10 @@ import './InstagramWall.css';
 
 class InstagramPhoto extends Component {
     render() {
+        const basis = this.props.basis || 400;
         const style = {
-            backgroundImage: `url(${this.props.url})`
+            backgroundImage: `url(${this.props.url})`,
+            flexBasis: `${basis}px`
         };
         // The timestamp is in seconds and we need milliseconds
         const date = timeago().format(this.props.date * 1000);
@@ -41,11 +43,12 @@ export default class InstagramWall extends Component {
 
     fetchData() {
         const { token, hashtag } = this.props;
+        const limit = this.props.limit || 9;
         const url = `https://api.instagram.com/v1/tags/${hashtag}/` +
                     `media/recent?access_token=${token}`;
         fetchJsonp(url)
             .then(response => response.json())
-            .then(data => data.data.slice(0, 9))
+            .then(data => data.data.slice(0, limit))
             .then(posts => posts.map(post => {
                 return {
                     id: post.id,
