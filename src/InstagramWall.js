@@ -63,7 +63,10 @@ export default class InstagramWall extends Component {
                     `media/recent?access_token=${token}`;
         fetchJsonp(url)
             .then(response => response.json())
-            .then(data => data.data.slice(0, limit))
+            .then(data => {
+                var sorted = data.data.sort((a, b) => a.created_time < b.created_time ? 1 : -1);
+                return sorted.slice(0, limit);
+            })
             .then(posts => posts.map(post => {
                 return {
                     id: post.id,
@@ -73,7 +76,6 @@ export default class InstagramWall extends Component {
                 };
             }))
             .then(posts => this.setState({posts: posts}));
-
     }
 
     render() {
